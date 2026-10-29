@@ -1,517 +1,1257 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ani Dajunts | Shopify Portfolio</title>
-<meta name="description" content="Ani Dajunts - Shopify customization, landing pages and digital marketing portfolio.">
+{% comment %}
+SPORTÉ Christmas Corporate Landing Page
+Shopify Custom Liquid
+{% endcomment %}
+
+<div id="sporte-christmas">
 
 <style>
-:root {
-  --cream: #F5F0E8;
-  --white: #FFFCF8;
-  --brown: #2B211C;
-  --taupe: #897668;
-  --soft: #D6CCC2;
-  --wine: #641C35;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--brown);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.65;
-}
-a { color: inherit; }
-.container {
-  width: calc(100% - 40px);
-  max-width: 1160px;
-  margin: auto;
-}
-header {
-  background: var(--white);
-  border-bottom: 1px solid var(--soft);
-}
-.nav {
-  min-height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.brand {
-  font: 24px Georgia, serif;
-  letter-spacing: 2px;
-  text-decoration: none;
-}
-nav { display: flex; gap: 28px; flex-wrap: wrap; }
-nav a {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 1.4px;
-}
-nav a:hover { color: var(--wine); }
-
-h1, h2, h3 {
-  font-family: Georgia, serif;
-  font-weight: normal;
-  line-height: 1.15;
-}
-h1 { font-size: clamp(43px, 5vw, 72px); margin: 15px 0 24px; }
-h2 { font-size: clamp(32px, 4vw, 48px); margin: 10px 0 20px; }
-h3 { font-size: 29px; margin: 10px 0; }
-p { color: #6F5D52; }
-
-.eyebrow {
-  color: var(--taupe);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-}
-.button {
-  display: inline-block;
-  padding: 15px 27px;
-  background: var(--brown);
-  color: white;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: background .25s;
-}
-.button:hover { background: var(--wine); }
-
-/* PERSONAL HERO */
-.hero {
-  background: linear-gradient(115deg, #F5F0E8, #E8DDD4);
-  overflow: hidden;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  align-items: center;
-  gap: 65px;
-  padding-top: 65px;
-  padding-bottom: 65px;
-}
-.hero-text p {
-  max-width: 520px;
-  font-size: 17px;
-  margin-bottom: 30px;
-}
-.hero-photo {
-  position: relative;
-  max-width: 430px;
-  margin: auto;
-  width: 100%;
-}
-.hero-photo::before {
-  content: "";
-  position: absolute;
-  inset: 22px -20px -20px 22px;
-  border: 1px solid #AD9486;
-}
-.hero-photo img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4/4.5;
-  object-fit: cover;
-  object-position: center 22%;
-  position: relative;
-  border: 9px solid var(--white);
-  background: #ddd;
-}
-.photo-caption {
-  position: relative;
-  text-align: center;
-  padding: 15px;
-  font: italic 16px Georgia, serif;
-  color: var(--wine);
+body:has(#sporte-christmas) .shopify-section-group-header-group,
+body:has(#sporte-christmas) .shopify-section-group-footer-group {
+  display:none!important;
 }
 
-/* PROJECTS */
-section { padding: 85px 0; }
-.section-heading {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 45px;
-}
-.projects {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px;
-}
-.project {
-  background: var(--white);
-  border: 1px solid #E1D5C9;
-  padding: 12px;
-  box-shadow: 0 5px 25px #2B211C0A;
-  transition: transform .3s, box-shadow .3s;
-}
-.project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px #2B211C18;
-}
-.project-image {
-  height: 290px;
-  background: #E7D8CC;
-  overflow: hidden;
-}
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.project-content { padding: 23px 13px 15px; }
-.project-tag {
-  color: var(--taupe);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.project-content p { font-size: 14px; }
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin: 20px 0;
-}
-.tags span {
-  padding: 6px 11px;
-  border: 1px solid var(--soft);
-  background: #F9F4ED;
-  font-size: 11px;
-}
-.project-link {
-  display: inline-block;
-  background: var(--brown);
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: bold;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-}
-.project-link:hover { background: var(--wine); }
-.project-note {
-  font-size: 12px;
-  color: var(--taupe);
-  font-style: italic;
+#sporte-christmas {
+  --wine:#641c35;
+  --dark:#411525;
+  --pink:#f3e3e2;
+  --cream:#fffaf5;
+  --gold:#b89064;
+  --text:#49323b;
+  color:var(--text);
+  background:var(--cream);
+  font-family:Arial,sans-serif;
+  line-height:1.6;
+  overflow:hidden;
 }
 
-/* ABOUT */
-.about { background: var(--white); }
-.about-grid {
-  display: grid;
-  grid-template-columns: .8fr 1.2fr;
-  gap: 70px;
-  align-items: center;
-}
-.about-panel {
-  background: var(--cream);
-  border: 1px solid var(--soft);
-  text-align: center;
-  padding: 65px 30px;
-}
-.initials {
-  font: 95px Georgia, serif;
-  color: var(--wine);
-}
-.about-panel p {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 12px;
+#sporte-christmas,
+#sporte-christmas * {
+  box-sizing:border-box;
 }
 
-/* SKILLS */
-.skills {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.skill {
-  background: var(--white);
-  border: 1px solid var(--soft);
-  padding: 30px 25px;
-}
-.skill-number {
-  font: 30px Georgia, serif;
-  color: var(--taupe);
-}
-.skill h3 { font-size: 23px; }
-.skill p { font-size: 14px; }
-
-/* CONTACT */
-.contact {
-  background: var(--wine);
-  text-align: center;
-}
-.contact h2 { color: white; }
-.contact p {
-  color: #F3E3E2;
-  max-width: 620px;
-  margin: 0 auto 30px;
-}
-.contact .button {
-  background: var(--white);
-  color: var(--wine);
-}
-footer {
-  background: var(--brown);
-  color: #E9DFD7;
-  text-align: center;
-  padding: 25px;
-  font-size: 12px;
-  letter-spacing: 1px;
+#sporte-christmas .container {
+  max-width:1160px;
+  width:calc(100% - 36px);
+  margin:auto;
 }
 
-@media (max-width: 800px) {
-  .hero-grid, .projects, .about-grid {
-    grid-template-columns: 1fr;
+#sporte-christmas section {
+  padding:80px 0;
+}
+
+#sporte-christmas h1,
+#sporte-christmas h2,
+#sporte-christmas h3 {
+  font-family:Georgia,serif;
+  color:var(--wine);
+  line-height:1.18;
+  margin:0 0 20px;
+}
+
+#sporte-christmas h1 {
+  font-size:clamp(42px,5vw,70px);
+  font-weight:400;
+}
+
+#sporte-christmas h2 {
+  font-size:clamp(30px,3.5vw,46px);
+  font-weight:400;
+}
+
+#sporte-christmas h3 {
+  font-size:24px;
+  font-weight:400;
+}
+
+#sporte-christmas p {
+  margin:0 0 18px;
+}
+
+#sporte-christmas .eyebrow {
+  color:var(--gold);
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:2.5px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+#sporte-christmas .center {
+  text-align:center;
+}
+
+#sporte-christmas .intro {
+  max-width:700px;
+  margin:0 auto 35px;
+}
+
+#sporte-christmas .button {
+  display:inline-block;
+  padding:16px 27px;
+  background:var(--wine);
+  color:white;
+  text-decoration:none;
+  text-align:center;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-size:12px;
+  font-weight:bold;
+  border:1px solid var(--wine);
+  cursor:pointer;
+}
+
+#sporte-christmas .button:hover {
+  background:var(--dark);
+}
+
+#sporte-christmas .button-outline {
+  background:transparent;
+  color:var(--wine);
+}
+
+#sporte-christmas .buttons {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+
+#sporte-christmas .announcement {
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:11px;
+  font-size:12px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+}
+
+#sporte-christmas .navigation {
+  background:#fffaf6;
+  border-bottom:1px solid #e9d7d2;
+}
+
+#sporte-christmas .nav-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:15px 0;
+}
+
+#sporte-christmas .logo {
+  display:block;
+  width:210px;
+  max-width:52vw;
+  height:auto!important;
+  object-fit:contain!important;
+}
+
+#sporte-christmas .nav-link {
+  color:var(--wine);
+  font-size:12px;
+  font-weight:bold;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+
+#sporte-christmas .hero {
+  background:linear-gradient(125deg,#fffaf5,#f1dedd);
+}
+
+#sporte-christmas .hero-grid,
+#sporte-christmas .split {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+
+#sporte-christmas .hero-text {
+  font-size:17px;
+  color:#6d5360;
+}
+
+#sporte-christmas .image-wrap {
+  position:relative;
+}
+
+#sporte-christmas .gift-image {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:150px 150px 8px 8px;
+  box-shadow:0 20px 55px #641c3525;
+}
+
+#sporte-christmas .discount {
+  position:absolute;
+  left:-15px;
+  bottom:25px;
+  background:#fffaf5;
+  color:var(--wine);
+  padding:19px 24px;
+  text-align:center;
+  border:1px solid #e8d5cf;
+  box-shadow:0 8px 28px #641c3515;
+}
+
+#sporte-christmas .discount strong {
+  display:block;
+  font:32px Georgia,serif;
+}
+
+#sporte-christmas .discount span {
+  display:block;
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+#sporte-christmas .cards {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+#sporte-christmas .card {
+  background:white;
+  border:1px solid #eadbd5;
+  padding:32px 26px;
+}
+
+#sporte-christmas .card-number {
+  display:block;
+  color:var(--gold);
+  font:30px Georgia,serif;
+  margin-bottom:18px;
+}
+
+#sporte-christmas .soft {
+  background:var(--pink);
+}
+
+#sporte-christmas .product-image {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  box-shadow:0 15px 40px #641c3520;
+}
+
+#sporte-christmas .features {
+  list-style:none;
+  padding:0;
+  margin:22px 0;
+}
+
+#sporte-christmas .features li {
+  padding:12px 0 12px 28px;
+  border-bottom:1px solid #e5d1cf;
+  position:relative;
+}
+
+#sporte-christmas .features li:before {
+  content:"✦";
+  color:var(--gold);
+  position:absolute;
+  left:0;
+}
+
+#sporte-christmas .offer {
+  background:var(--wine);
+  color:white;
+  text-align:center;
+}
+
+#sporte-christmas .offer h2 {
+  color:white;
+}
+
+#sporte-christmas .offer .eyebrow {
+  color:#ecd2b2;
+}
+
+#sporte-christmas .offer .button {
+  background:#fff8f1;
+  border-color:#fff8f1;
+  color:var(--wine);
+}
+
+#sporte-christmas .timer {
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:32px 0;
+}
+
+#sporte-christmas .time-box {
+  min-width:85px;
+  padding:15px 10px;
+  border:1px solid #ffffff66;
+  background:#ffffff12;
+}
+
+#sporte-christmas .time-box strong {
+  display:block;
+  color:white;
+  font:32px Georgia,serif;
+}
+
+#sporte-christmas .time-box span {
+  display:block;
+  color:white;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+#sporte-christmas .comparison {
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+}
+
+#sporte-christmas .comparison th,
+#sporte-christmas .comparison td {
+  border:1px solid #eadbd5;
+  padding:17px;
+  text-align:left;
+  font-size:14px;
+}
+
+#sporte-christmas .comparison th {
+  background:#f3e5e2;
+  color:var(--wine);
+}
+
+#sporte-christmas .comparison td:nth-child(2) {
+  color:var(--wine);
+  font-weight:bold;
+}
+
+#sporte-christmas .steps {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+#sporte-christmas .step {
+  border-top:2px solid var(--gold);
+  padding-top:25px;
+}
+
+#sporte-christmas .step-number {
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:bold;
+}
+
+#sporte-christmas .testimonial {
+  font-family:Georgia,serif;
+  font-size:20px;
+  color:var(--wine);
+}
+
+#sporte-christmas .faq {
+  max-width:800px;
+  margin:auto;
+}
+
+#sporte-christmas details {
+  border-bottom:1px solid #dcc8c4;
+  padding:19px 0;
+}
+
+#sporte-christmas summary {
+  color:var(--wine);
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+#sporte-christmas details p {
+  padding-top:15px;
+  color:#705b63;
+}
+
+#sporte-christmas .contact-section {
+  background:linear-gradient(125deg,#f1dddd,#fffaf5);
+}
+
+#sporte-christmas .form-box {
+  background:white;
+  padding:35px;
+  border:1px solid #eadbd5;
+  box-shadow:0 15px 45px #641c3510;
+}
+
+#sporte-christmas .fields {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:15px;
+}
+
+#sporte-christmas .field {
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  min-width:0!important;
+  margin-bottom:17px!important;
+  position:static!important;
+}
+
+#sporte-christmas .field label {
+  display:block!important;
+  position:static!important;
+  transform:none!important;
+  float:none!important;
+  width:100%!important;
+  height:auto!important;
+  padding:0!important;
+  margin:0 0 8px!important;
+  color:var(--wine)!important;
+  background:transparent!important;
+  font-family:Arial,sans-serif!important;
+  font-size:12px!important;
+  line-height:1.5!important;
+  font-weight:bold!important;
+  letter-spacing:0!important;
+  white-space:normal!important;
+  pointer-events:auto!important;
+}
+
+#sporte-christmas .field input,
+#sporte-christmas .field textarea {
+  display:block!important;
+  position:static!important;
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+  height:auto!important;
+  padding:13px!important;
+  margin:0!important;
+  border:1px solid #d9c6c4!important;
+  background:#fffdfa!important;
+  color:var(--text)!important;
+  font:14px Arial,sans-serif!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  transform:none!important;
+}
+
+#sporte-christmas .field input {
+  min-height:46px!important;
+}
+
+#sporte-christmas .field textarea {
+  min-height:120px!important;
+  resize:vertical;
+}
+
+#sporte-christmas .field input:focus,
+#sporte-christmas .field textarea:focus {
+  outline:2px solid var(--gold)!important;
+  outline-offset:1px;
+}
+
+#sporte-christmas .small {
+  font-size:12px;
+  color:#826b74;
+}
+
+#sporte-christmas .success {
+  padding:15px;
+  background:#edf6e9;
+  color:#285b31;
+  margin-bottom:15px;
+}
+
+#sporte-christmas .footer {
+  background:var(--dark);
+  text-align:center;
+  padding:40px 20px;
+  color:white;
+}
+
+#sporte-christmas .footer img {
+  width:180px;
+  max-width:80%;
+  height:auto!important;
+  object-fit:contain!important;
+  margin:0 auto 18px;
+  display:block;
+}
+
+@media(max-width:800px) {
+  #sporte-christmas .hero-grid,
+  #sporte-christmas .split,
+  #sporte-christmas .cards,
+  #sporte-christmas .steps {
+    grid-template-columns:1fr;
   }
-  .hero-grid { gap: 35px; }
-  .hero-text { text-align: center; }
-  .hero-text p { margin-left: auto; margin-right: auto; }
-  .hero-photo { max-width: 350px; }
-  .skills { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { gap: 30px; }
-  section { padding: 65px 0; }
-}
-@media (max-width: 550px) {
-  .nav {
-    flex-direction: column;
-    padding: 18px 0;
-    gap: 15px;
+
+  #sporte-christmas section {
+    padding:55px 0;
   }
-  nav { justify-content: center; gap: 15px; }
-  .brand { font-size: 21px; }
-  .hero-grid { padding-top: 45px; padding-bottom: 45px; }
-  .hero-photo { max-width: 280px; }
-  .project-image { height: 225px; }
-  .skills { grid-template-columns: 1fr; }
+
+  #sporte-christmas .hero-grid,
+  #sporte-christmas .split {
+    gap:32px;
+  }
+
+  #sporte-christmas .discount {
+    left:10px;
+  }
+}
+
+@media(max-width:480px) {
+  #sporte-christmas .fields {
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  #sporte-christmas .form-box {
+    padding:22px;
+  }
+
+  #sporte-christmas .time-box {
+    min-width:65px;
+    padding:12px 5px;
+  }
+
+  #sporte-christmas .time-box strong {
+    font-size:25px;
+  }
+
+  #sporte-christmas .buttons .button {
+    width:100%;
+  }
+
+  #sporte-christmas .nav-link {
+    font-size:10px;
+  }
 }
 </style>
-</head>
 
-<body>
+<div class="announcement">
+  A Thoughtful Gift ✦ A Lasting Impression ✦ Christmas 2026
+</div>
 
-<header>
-  <div class="container nav">
-    <a href="#" class="brand">ANI DAJUNTS</a>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<div class="navigation">
+  <div class="container nav-inner">
+
+    <a href="#sporte-christmas">
+      <img
+        class="logo"
+        src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/b9cc957e85401b68676346eb57799353.png?v=1793185511"
+        alt="SPORTÉ Logo"
+      >
+    </a>
+
+    <a class="nav-link" href="#sporte-contact">
+      Corporate Gifts
+    </a>
+
   </div>
-</header>
-
-<main>
+</div>
 
 <section class="hero">
   <div class="container hero-grid">
-    <div class="hero-text">
-      <div class="eyebrow">Shopify & Digital Marketing Specialist</div>
-      <h1>Hi, I'm<br>Ani Dajunts.</h1>
-      <p>
-        I create elegant Shopify storefronts, custom sections
-        and engaging landing pages that bring creative ideas
-        to life.
+
+    <div>
+      <p class="eyebrow">
+        Christmas Corporate Collection 2026
       </p>
-      <a class="button" href="#projects">Explore My Work →</a>
+
+      <h1>
+        This Christmas,<br>
+        Gift More Than<br>
+        a Present.
+      </h1>
+
+      <p class="hero-text">
+        More Than a Gift. A Moment of Wellbeing.
+        Celebrate your employees, clients and partners
+        with thoughtfully curated SPORTÉ wellness gift boxes.
+      </p>
+
+      <div class="buttons">
+        <a class="button" href="#sporte-contact">
+          Request a Corporate Quote
+        </a>
+
+        <a class="button button-outline" href="#sporte-gift">
+          Explore the Gift Box
+        </a>
+      </div>
+
+      <p class="small" style="margin-top:20px">
+        Corporate gifting · Personalized details · Holiday 2026
+      </p>
     </div>
 
-    <div class="hero-photo">
+    <div class="image-wrap">
+
       <img
-        src="60355249_1765844476894029_1641437922441822208_n.jpg"
-        alt="Portrait of Ani Dajunts"
+        class="gift-image"
+        src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
+        alt="SPORTÉ Christmas Gift Box"
       >
-      <div class="photo-caption">Design · Creativity · Digital</div>
+
+      <div class="discount">
+        <strong>15% OFF</strong>
+        <span>Early Corporate Orders</span>
+      </div>
+
     </div>
+
   </div>
 </section>
 
-<section id="projects">
+<section>
   <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">Selected Work</div>
-      <h2>Featured Projects</h2>
-      <p>
-        A selection of Shopify projects created as part
-        of my practical training.
+
+    <div class="center">
+      <p class="eyebrow">Corporate Gifting Reimagined</p>
+
+      <h2>
+        Your appreciation deserves<br>
+        something extraordinary.
+      </h2>
+
+      <p class="intro">
+        Finding a memorable corporate gift can be difficult.
+        Generic presents feel impersonal, presentation takes
+        time, and choosing something meaningful for everyone
+        is rarely simple.
       </p>
     </div>
 
-    <div class="projects">
+    <div class="cards">
 
-      <article class="project">
-        <div class="project-image">
-          <img
-            src="monpiel-portfolio.jpg"
-            alt="MONPIEL Shopify store product collection"
-            loading="lazy"
-          >
-        </div>
-        <div class="project-content">
-          <div class="project-tag">Shopify Store Design</div>
-          <h3>MONPIEL</h3>
-          <p>
-            A leather accessories Shopify store featuring
-            a refined visual identity, custom Liquid sections,
-            multilingual content, product page enhancements
-            and responsive layouts.
-          </p>
-          <div class="tags">
-            <span>Shopify</span>
-            <span>Custom Liquid</span>
-            <span>EN / RU</span>
-            <span>Responsive Design</span>
-          </div>
-          <a
-            class="project-link"
-            href="https://ani-dajunts-eh01900t.myshopify.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >View Shopify Store →</a>
-        </div>
-      </article>
+      <div class="card">
+        <span class="card-number">01</span>
+        <h3>Forgettable Gifts</h3>
+        <p>
+          Standard corporate presents often fail
+          to create a lasting impression.
+        </p>
+      </div>
 
-      <article class="project">
-        <div class="project-image">
-          <img
-            src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
-            alt="SPORTÉ Christmas corporate gift project"
-            loading="lazy"
-          >
-        </div>
-        <div class="project-content">
-          <div class="project-tag">Landing Page Design</div>
-          <h3>SPORTÉ Christmas Gifts</h3>
-          <p>
-            A festive corporate gifting landing page featuring
-            a premium holiday aesthetic, promotional sections,
-            product highlights, FAQ and a contact inquiry form.
-          </p>
-          <div class="tags">
-            <span>Landing Page</span>
-            <span>HTML & CSS</span>
-            <span>Custom Liquid</span>
-            <span>Mobile Responsive</span>
-          </div>
-          <p class="project-note">
-            Shopify project preview link being updated.
-          </p>
-        </div>
-      </article>
+      <div class="card">
+        <span class="card-number">02</span>
+        <h3>Endless Planning</h3>
+        <p>
+          Finding suitable items and coordinating
+          gift presentation takes valuable time.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card-number">03</span>
+        <h3>Missing the Personal Touch</h3>
+        <p>
+          A meaningful thank-you should feel
+          thoughtful rather than routine.
+        </p>
+      </div>
 
     </div>
+
   </div>
 </section>
 
-<section id="about" class="about">
-  <div class="container about-grid">
-    <div class="about-panel">
-      <div class="initials">AD</div>
-      <h3>Ani Dajunts</h3>
-      <p>Shopify & Digital Marketing</p>
+<section id="sporte-gift" class="soft">
+  <div class="container split">
+
+    <div>
+      <img
+        class="product-image"
+        src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
+        alt="SPORTÉ Festive Wellness Gift Box"
+        loading="lazy"
+      >
+
+      <p class="small" style="margin-top:12px">
+        Concept image. Final gift contents and packaging
+        are confirmed when ordering.
+      </p>
     </div>
 
     <div>
-      <div class="eyebrow">About Me</div>
-      <h2>Combining Creativity With Functionality.</h2>
+
+      <p class="eyebrow">The SPORTÉ Gift Experience</p>
+
+      <h2>
+        Wellness, Wrapped<br>
+        With Care.
+      </h2>
+
       <p>
-        I am a digital marketing professional expanding
-        my expertise in Shopify store development and
-        customization.
+        A beautiful holiday gift concept inspired by
+        movement, balance, and everyday wellbeing.
+        Designed for companies that want to give
+        something more meaningful.
       </p>
-      <p>
-        My work focuses on clean design, intuitive user
-        experiences and practical e-commerce solutions.
-        I enjoy creating responsive pages that balance
-        visual appeal with functionality.
-      </p>
-      <p>
-        This portfolio showcases my hands-on Shopify
-        projects and ongoing development journey.
-      </p>
+
+      <ul class="features">
+        <li>Curated wellness-inspired gift options</li>
+        <li>Elegant Christmas-ready presentation</li>
+        <li>Thoughtful active-lifestyle essentials</li>
+        <li>Personalized greeting cards on request</li>
+        <li>Company branding options on request</li>
+        <li>Flexible corporate order discussions</li>
+      </ul>
+
+      <a class="button" href="#sporte-contact">
+        Create Your Corporate Gift
+      </a>
+
     </div>
+
   </div>
 </section>
 
-<section id="skills">
+<section class="offer">
   <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">My Expertise</div>
-      <h2>Skills & Tools</h2>
-    </div>
 
-    <div class="skills">
-      <div class="skill">
-        <div class="skill-number">01</div>
-        <h3>Shopify Customization</h3>
-        <p>Theme editing, templates, product pages and store layouts.</p>
-      </div>
-      <div class="skill">
-        <div class="skill-number">02</div>
-        <h3>Custom Liquid</h3>
-        <p>Custom content sections, HTML and CSS styling.</p>
-      </div>
-      <div class="skill">
-        <div class="skill-number">03</div>
-        <h3>Responsive Design</h3>
-        <p>Mobile-friendly layouts and user experiences.</p>
-      </div>
-      <div class="skill">
-        <div class="skill-number">04</div>
-        <h3>Shopify Apps</h3>
-        <p>Reviews, forms, translations and storefront enhancements.</p>
-      </div>
-      <div class="skill">
-        <div class="skill-number">05</div>
-        <h3>Landing Pages</h3>
-        <p>Promotional pages with clear calls to action.</p>
-      </div>
-      <div class="skill">
-        <div class="skill-number">06</div>
-        <h3>Digital Marketing</h3>
-        <p>Customer communication, messaging and campaign strategy.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="container">
-    <div class="eyebrow" style="color:#E7C8B3">Let's Connect</div>
-    <h2>Let's Create Something Meaningful.</h2>
-    <p>
-      Interested in Shopify customization, landing pages
-      or digital marketing? Explore my projects and connect
-      with me through GitHub.
+    <p class="eyebrow">
+      Christmas Early-Order Offer
     </p>
-    <a
-      class="button"
-      href="https://github.com/anidajunts"
-      target="_blank"
-      rel="noopener noreferrer"
-    >Visit My GitHub →</a>
+
+    <h2>
+      Give More.<br>
+      Save 15%.
+    </h2>
+
+    <p>
+      Request your corporate gift order before
+      <strong>December 1, 2026</strong>
+      to ask about our exclusive early-order offer.
+    </p>
+
+    <div class="timer" id="sporte-timer">
+
+      <div class="time-box">
+        <strong data-time="days">--</strong>
+        <span>Days</span>
+      </div>
+
+      <div class="time-box">
+        <strong data-time="hours">--</strong>
+        <span>Hours</span>
+      </div>
+
+      <div class="time-box">
+        <strong data-time="minutes">--</strong>
+        <span>Minutes</span>
+      </div>
+
+      <div class="time-box">
+        <strong data-time="seconds">--</strong>
+        <span>Seconds</span>
+      </div>
+
+    </div>
+
+    <p id="sporte-deadline">
+      Order Before December 1 · Yerevan Time
+    </p>
+
+    <a class="button" href="#sporte-contact">
+      Request the 15% Offer
+    </a>
+
+    <p style="font-size:12px;margin-top:20px">
+      Offer subject to SPORTÉ confirmation,
+      availability and agreed order terms.
+    </p>
+
   </div>
 </section>
 
-</main>
+<section>
+  <div class="container">
 
-<footer>
-  © 2026 Ani Dajunts · Shopify Portfolio
-</footer>
+    <div class="center">
+      <p class="eyebrow">Why Choose SPORTÉ</p>
 
-</body>
-</html>
+      <h2>
+        More Than a Gift.<br>
+        A Beautiful Experience.
+      </h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <span class="card-number">✦</span>
+        <h3>Meaningful</h3>
+        <p>
+          A wellness-focused gift that expresses
+          appreciation and care.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card-number">✦</span>
+        <h3>Elegant</h3>
+        <p>
+          A refined festive presentation designed
+          to make the unboxing feel special.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card-number">✦</span>
+        <h3>Personal</h3>
+        <p>
+          Explore branded details and personalized
+          messages for your team or clients.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="soft">
+  <div class="container">
+
+    <div class="center">
+      <p class="eyebrow">The Difference</p>
+      <h2>Why SPORTÉ Stands Out</h2>
+    </div>
+
+    <div style="overflow-x:auto">
+
+      <table class="comparison">
+
+        <thead>
+          <tr>
+            <th>Experience</th>
+            <th>SPORTÉ Gift Concept</th>
+            <th>Generic Corporate Gift</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Meaning</td>
+            <td>Wellness &amp; Self-Care</td>
+            <td>Standard Promotion</td>
+          </tr>
+
+          <tr>
+            <td>Presentation</td>
+            <td>Festive Gift-Ready Concept</td>
+            <td>Basic Packaging</td>
+          </tr>
+
+          <tr>
+            <td>Personalization</td>
+            <td>Branding Options on Request</td>
+            <td>Often Limited</td>
+          </tr>
+
+          <tr>
+            <td>Experience</td>
+            <td>Thoughtful &amp; Memorable</td>
+            <td>Primarily Functional</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="center">
+      <p class="eyebrow">Simple &amp; Thoughtful</p>
+      <h2>How It Works</h2>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <p class="step-number">STEP 01</p>
+        <h3>Share Your Vision</h3>
+        <p>
+          Tell us your preferred quantity,
+          budget and personalization wishes.
+        </p>
+      </div>
+
+      <div class="step">
+        <p class="step-number">STEP 02</p>
+        <h3>Receive a Quote</h3>
+        <p>
+          Discuss gift contents, packaging,
+          pricing and branding possibilities.
+        </p>
+      </div>
+
+      <div class="step">
+        <p class="step-number">STEP 03</p>
+        <h3>Celebrate Together</h3>
+        <p>
+          Once details are confirmed, your
+          corporate gift order can be prepared.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="soft">
+  <div class="container">
+
+    <div class="center">
+      <p class="eyebrow">The Feeling We Aim to Create</p>
+      <h2>Gifts People Remember</h2>
+
+      <p class="small">
+        Sample testimonials for landing-page design.
+        Replace with verified customer reviews before launch.
+      </p>
+    </div>
+
+    <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+
+      <div class="card">
+        <p class="testimonial">
+          “A thoughtful way to make our team feel
+          appreciated during the holidays.”
+        </p>
+        <p class="small">Sample — HR Manager</p>
+      </div>
+
+      <div class="card">
+        <p class="testimonial">
+          “Beautiful presentation and a refreshing
+          alternative to traditional corporate gifts.”
+        </p>
+        <p class="small">Sample — Corporate Client</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="center">
+      <p class="eyebrow">Good to Know</p>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq">
+
+      <details>
+        <summary>Can we add our company logo?</summary>
+        <p>
+          Branding options can be discussed during
+          the quotation process and depend on
+          packaging and order requirements.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can we customize the gift box?</summary>
+        <p>
+          Share your preferences and budget.
+          Available product combinations can be
+          discussed before confirming an order.
+        </p>
+      </details>
+
+      <details>
+        <summary>Is there a minimum order quantity?</summary>
+        <p>
+          Please tell us how many boxes you need.
+          Minimum quantities, if applicable,
+          will be confirmed in your quote.
+        </p>
+      </details>
+
+      <details>
+        <summary>How can we receive the 15% offer?</summary>
+        <p>
+          Submit your inquiry before December 1, 2026.
+          Discount eligibility and terms require
+          confirmation before placing an order.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can we request a specific delivery date?</summary>
+        <p>
+          Include your preferred date and destination.
+          Delivery availability will be confirmed
+          according to your order.
+        </p>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="sporte-contact" class="contact-section">
+  <div class="container split">
+
+    <div>
+
+      <p class="eyebrow">
+        Let's Make This Christmas Special
+      </p>
+
+      <h2>
+        Your Perfect Corporate Gift
+        Starts Here.
+      </h2>
+
+      <p>
+        Tell us about your company, your team
+        and your gifting plans. Let's explore
+        a memorable SPORTÉ Christmas experience.
+      </p>
+
+      <p>
+        <strong>15% Early-Order Offer</strong><br>
+        Request before December 1, 2026.
+      </p>
+
+      <p class="small">
+        This form sends an inquiry, not a confirmed order.
+        Final prices, contents and availability
+        are confirmed separately.
+      </p>
+
+    </div>
+
+    <div class="form-box">
+
+      {% form 'contact', id: 'SporteCorporateContact' %}
+
+        {% if form.posted_successfully? %}
+          <div class="success">
+            Thank you! Your inquiry has been sent.
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div style="color:#a52645;margin-bottom:15px">
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <input
+          type="hidden"
+          name="contact[subject]"
+          value="SPORTÉ Christmas Corporate Gift Inquiry"
+        >
+
+        <div class="fields">
+
+          <div class="field">
+            <label for="sp-name">Your Name *</label>
+            <input
+              id="sp-name"
+              type="text"
+              name="contact[name]"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="sp-company">Company *</label>
+            <input
+              id="sp-company"
+              type="text"
+              name="contact[Company]"
+              required
+            >
+          </div>
+
+        </div>
+
+        <div class="fields">
+
+          <div class="field">
+            <label for="sp-email">Work Email *</label>
+            <input
+              id="sp-email"
+              type="email"
+              name="contact[email]"
+              value="{{ form.email }}"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="sp-phone">Phone</label>
+            <input
+              id="sp-phone"
+              type="tel"
+              name="contact[phone]"
+            >
+          </div>
+
+        </div>
+
+        <div class="fields">
+
+          <div class="field">
+            <label for="sp-quantity">Quantity</label>
+            <input
+              id="sp-quantity"
+              type="text"
+              name="contact[Quantity]"
+              placeholder="e.g. 50 boxes"
+            >
+          </div>
+
+          <div class="field">
+            <label for="sp-budget">Budget Per Gift</label>
+            <input
+              id="sp-budget"
+              type="text"
+              name="contact[Budget per gift]"
+              placeholder="Your budget"
+            >
+          </div>
+
+        </div>
+
+        <div class="field">
+          <label for="sp-message">
+            Your Requirements
+          </label>
+
+          <textarea
+            id="sp-message"
+            name="contact[body]"
+            placeholder="Branding, gift preferences, delivery date..."
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="button"
+          style="width:100%"
+        >
+          Send Corporate Inquiry
+        </button>
+
+        <p class="small" style="margin-top:15px">
+          We will use your details to respond
+          to your corporate gift inquiry.
+        </p>
+
+      {% endform %}
+
+    </div>
+
+  </div>
+</section>
+
+<div class="footer">
+
+  <img
+    src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/b9cc957e85401b68676346eb57799353.png?v=1793185511"
+    alt="SPORTÉ Logo"
+  >
+
+  <p>
+    MORE THAN A LIFESTYLE
+  </p>
+
+  <p style="font-size:12px">
+    Christmas Corporate Gifts · 2026
+  </p>
+
+</div>
+
+<script>
+(function() {
+
+  var root = document.getElementById('sporte-christmas');
+  if (!root) return;
+
+  var deadline = new Date(
+    '2026-12-01T00:00:00+04:00'
+  ).getTime();
+
+  var timer;
+
+  function updateCountdown() {
+
+    var remaining = Math.max(
+      0,
+      deadline - Date.now()
+    );
+
+    var values = {
+      days: Math.floor(remaining / 86400000),
+      hours: Math.floor((remaining % 86400000) / 3600000),
+      minutes: Math.floor((remaining % 3600000) / 60000),
+      seconds: Math.floor((remaining % 60000) / 1000)
+    };
+
+    Object.keys(values).forEach(function(key) {
+
+      var element = root.querySelector(
+        '[data-time="' + key + '"]'
+      );
+
+      if (element) {
+        element.textContent = String(
+          values[key]
+        ).padStart(2, '0');
+      }
+
+    });
+
+    if (remaining === 0) {
+
+      var message = root.querySelector(
+        '#sporte-deadline'
+      );
+
+      if (message) {
+        message.textContent =
+          'Early-order countdown has ended. Contact us for current offers.';
+      }
+
+      if (timer) {
+        clearInterval(timer);
+      }
+    }
+  }
+
+  updateCountdown();
+
+  timer = setInterval(
+    updateCountdown,
+    1000
+  );
+
+})();
+</script>
+
+</div>
