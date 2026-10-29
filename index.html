@@ -4,357 +4,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ani Dajunts — Shopify portfolio featuring storefront customization, custom Liquid sections and responsive landing pages.">
 <title>Ani Dajunts | Shopify Portfolio</title>
+<meta name="description" content="Ani Dajunts - Shopify customization, landing pages and digital marketing portfolio.">
 
 <style>
 :root {
-  --cream:#F5F0E8;
-  --white:#FFFCF8;
-  --brown:#2B211C;
-  --taupe:#897668;
-  --soft:#D6CCC2;
-  --wine:#641C35;
+  --cream: #F5F0E8;
+  --white: #FFFCF8;
+  --brown: #2B211C;
+  --taupe: #897668;
+  --soft: #D6CCC2;
+  --wine: #641C35;
 }
-
-* { box-sizing:border-box; }
-
-html { scroll-behavior:smooth; }
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--cream);
-  color:var(--brown);
-  line-height:1.7;
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
 }
-
-a { color:inherit; }
-
+a { color: inherit; }
 .container {
-  width:calc(100% - 40px);
-  max-width:1120px;
-  margin:auto;
+  width: calc(100% - 40px);
+  max-width: 1160px;
+  margin: auto;
 }
-
 header {
-  background:var(--white);
-  border-bottom:1px solid var(--soft);
+  background: var(--white);
+  border-bottom: 1px solid var(--soft);
 }
-
 .nav {
-  min-height:85px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
-
 .brand {
-  font-family:Georgia,serif;
-  font-size:22px;
-  letter-spacing:2px;
-  text-decoration:none;
+  font: 24px Georgia, serif;
+  letter-spacing: 2px;
+  text-decoration: none;
 }
-
-nav {
-  display:flex;
-  gap:25px;
-  flex-wrap:wrap;
-}
-
+nav { display: flex; gap: 28px; flex-wrap: wrap; }
 nav a {
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  text-decoration:none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.4px;
 }
+nav a:hover { color: var(--wine); }
 
-nav a:hover { color:var(--wine); }
-
-.hero {
-  text-align:center;
-  padding:115px 20px 105px;
-  background:linear-gradient(135deg,#F5F0E8,#E8DDD4);
+h1, h2, h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  line-height: 1.15;
 }
+h1 { font-size: clamp(43px, 5vw, 72px); margin: 15px 0 24px; }
+h2 { font-size: clamp(32px, 4vw, 48px); margin: 10px 0 20px; }
+h3 { font-size: 29px; margin: 10px 0; }
+p { color: #6F5D52; }
 
 .eyebrow {
-  color:var(--taupe);
-  text-transform:uppercase;
-  letter-spacing:3px;
-  font-size:12px;
-  font-weight:bold;
+  color: var(--taupe);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
-
-h1,h2,h3 {
-  font-family:Georgia,serif;
-  font-weight:400;
-  line-height:1.2;
-}
-
-h1 {
-  font-size:clamp(44px,6vw,76px);
-  max-width:850px;
-  margin:20px auto;
-}
-
-h2 {
-  font-size:clamp(32px,4vw,48px);
-  margin:10px 0 25px;
-}
-
-h3 {
-  font-size:27px;
-  margin:10px 0;
-}
-
-.hero p {
-  max-width:670px;
-  margin:0 auto 30px;
-  color:#6F5D52;
-  font-size:17px;
-}
-
 .button {
-  display:inline-block;
-  background:var(--brown);
-  color:white;
-  padding:15px 30px;
-  font-size:12px;
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
-  text-decoration:none;
-  transition:background .25s;
+  display: inline-block;
+  padding: 15px 27px;
+  background: var(--brown);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: background .25s;
+}
+.button:hover { background: var(--wine); }
+
+/* PERSONAL HERO */
+.hero {
+  background: linear-gradient(115deg, #F5F0E8, #E8DDD4);
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 65px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+.hero-text p {
+  max-width: 520px;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+.hero-photo {
+  position: relative;
+  max-width: 430px;
+  margin: auto;
+  width: 100%;
+}
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 22px -20px -20px 22px;
+  border: 1px solid #AD9486;
+}
+.hero-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/4.5;
+  object-fit: cover;
+  object-position: center 22%;
+  position: relative;
+  border: 9px solid var(--white);
+  background: #ddd;
+}
+.photo-caption {
+  position: relative;
+  text-align: center;
+  padding: 15px;
+  font: italic 16px Georgia, serif;
+  color: var(--wine);
 }
 
-.button:hover {
-  background:var(--wine);
-}
-
-section { padding:85px 0; }
-
+/* PROJECTS */
+section { padding: 85px 0; }
 .section-heading {
-  text-align:center;
-  max-width:720px;
-  margin:0 auto 45px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 45px;
 }
-
-.section-heading p {
-  color:#6F5D52;
-}
-
 .projects {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
 }
-
 .project {
-  background:var(--white);
-  border:1px solid var(--soft);
-  overflow:hidden;
-  transition:transform .3s,box-shadow .3s;
+  background: var(--white);
+  border: 1px solid #E1D5C9;
+  padding: 12px;
+  box-shadow: 0 5px 25px #2B211C0A;
+  transition: transform .3s, box-shadow .3s;
 }
-
 .project:hover {
-  transform:translateY(-5px);
-  box-shadow:0 15px 35px #2B211C14;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px #2B211C18;
 }
-
 .project-image {
-  height:310px;
-  overflow:hidden;
-  background:#E8DDD4;
+  height: 290px;
+  background: #E7D8CC;
+  overflow: hidden;
 }
-
 .project-image img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-
-.project-content {
-  padding:30px;
-}
-
+.project-content { padding: 23px 13px 15px; }
 .project-tag {
-  font-size:11px;
-  color:var(--taupe);
-  text-transform:uppercase;
-  letter-spacing:2px;
+  color: var(--taupe);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-
-.project-content p {
-  color:#6F5D52;
-  font-size:14px;
-}
-
+.project-content p { font-size: 14px; }
 .tags {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:22px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 20px 0;
 }
-
 .tags span {
-  border:1px solid var(--soft);
-  padding:6px 10px;
-  font-size:11px;
+  padding: 6px 11px;
+  border: 1px solid var(--soft);
+  background: #F9F4ED;
+  font-size: 11px;
 }
-
 .project-link {
-  display:inline-block;
-  font-size:12px;
-  font-weight:bold;
-  text-decoration:none;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  border-bottom:1px solid var(--wine);
-  padding-bottom:5px;
+  display: inline-block;
+  background: var(--brown);
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+.project-link:hover { background: var(--wine); }
+.project-note {
+  font-size: 12px;
+  color: var(--taupe);
+  font-style: italic;
 }
 
-.project-link:hover {
-  color:var(--wine);
-}
-
-.about {
-  background:var(--white);
-}
-
+/* ABOUT */
+.about { background: var(--white); }
 .about-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:70px;
-  align-items:center;
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 70px;
+  align-items: center;
 }
-
 .about-panel {
-  background:var(--cream);
-  padding:60px 45px;
-  border:1px solid var(--soft);
-  text-align:center;
+  background: var(--cream);
+  border: 1px solid var(--soft);
+  text-align: center;
+  padding: 65px 30px;
 }
-
-.about-panel .initials {
-  font-family:Georgia,serif;
-  font-size:85px;
-  color:var(--wine);
-  line-height:1.2;
+.initials {
+  font: 95px Georgia, serif;
+  color: var(--wine);
 }
-
 .about-panel p {
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--taupe);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
 }
 
-.about-text p {
-  color:#6F5D52;
-}
-
+/* SKILLS */
 .skills {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
-
 .skill {
-  background:var(--white);
-  border:1px solid var(--soft);
-  padding:30px 25px;
+  background: var(--white);
+  border: 1px solid var(--soft);
+  padding: 30px 25px;
 }
-
 .skill-number {
-  color:var(--taupe);
-  font-family:Georgia,serif;
-  font-size:30px;
+  font: 30px Georgia, serif;
+  color: var(--taupe);
 }
+.skill h3 { font-size: 23px; }
+.skill p { font-size: 14px; }
 
-.skill h3 {
-  font-size:22px;
-  margin:15px 0;
-}
-
-.skill p {
-  color:#6F5D52;
-  font-size:14px;
-}
-
+/* CONTACT */
 .contact {
-  text-align:center;
-  background:var(--wine);
-  color:white;
+  background: var(--wine);
+  text-align: center;
 }
-
-.contact h2 {
-  color:white;
-}
-
+.contact h2 { color: white; }
 .contact p {
-  max-width:620px;
-  margin:0 auto 28px;
-  color:#F3E3E2;
+  color: #F3E3E2;
+  max-width: 620px;
+  margin: 0 auto 30px;
 }
-
 .contact .button {
-  background:var(--white);
-  color:var(--wine);
+  background: var(--white);
+  color: var(--wine);
 }
-
 footer {
-  background:var(--brown);
-  color:#E9DFD7;
-  text-align:center;
-  padding:25px;
-  font-size:12px;
-  letter-spacing:1px;
+  background: var(--brown);
+  color: #E9DFD7;
+  text-align: center;
+  padding: 25px;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
-@media(max-width:800px) {
-  .projects,
-  .about-grid {
-    grid-template-columns:1fr;
+@media (max-width: 800px) {
+  .hero-grid, .projects, .about-grid {
+    grid-template-columns: 1fr;
   }
-
-  .skills {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .about-grid { gap:30px; }
-
-  section { padding:60px 0; }
+  .hero-grid { gap: 35px; }
+  .hero-text { text-align: center; }
+  .hero-text p { margin-left: auto; margin-right: auto; }
+  .hero-photo { max-width: 350px; }
+  .skills { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { gap: 30px; }
+  section { padding: 65px 0; }
 }
-
-@media(max-width:550px) {
+@media (max-width: 550px) {
   .nav {
-    flex-direction:column;
-    justify-content:center;
-    padding:18px 0;
-    gap:12px;
+    flex-direction: column;
+    padding: 18px 0;
+    gap: 15px;
   }
-
-  nav {
-    justify-content:center;
-    gap:17px;
-  }
-
-  .hero { padding:75px 20px; }
-
-  .projects,
-  .skills {
-    grid-template-columns:1fr;
-  }
-
-  .project-image { height:240px; }
-
-  .project-content { padding:23px; }
-
-  .about-panel { padding:40px 20px; }
-
-  .brand { font-size:19px; }
+  nav { justify-content: center; gap: 15px; }
+  .brand { font-size: 21px; }
+  .hero-grid { padding-top: 45px; padding-bottom: 45px; }
+  .hero-photo { max-width: 280px; }
+  .project-image { height: 225px; }
+  .skills { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -363,8 +305,8 @@ footer {
 
 <header>
   <div class="container nav">
-    <a class="brand" href="#">ANI DAJUNTS</a>
-    <nav aria-label="Main navigation">
+    <a href="#" class="brand">ANI DAJUNTS</a>
+    <nav>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -376,36 +318,36 @@ footer {
 <main>
 
 <section class="hero">
-  <div class="eyebrow">
-    Shopify Design & Development Portfolio
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">Shopify & Digital Marketing Specialist</div>
+      <h1>Hi, I'm<br>Ani Dajunts.</h1>
+      <p>
+        I create elegant Shopify storefronts, custom sections
+        and engaging landing pages that bring creative ideas
+        to life.
+      </p>
+      <a class="button" href="#projects">Explore My Work →</a>
+    </div>
+
+    <div class="hero-photo">
+      <img
+        src="60355249_1765844476894029_1641437922441822208_n.jpg"
+        alt="Portrait of Ani Dajunts"
+      >
+      <div class="photo-caption">Design · Creativity · Digital</div>
+    </div>
   </div>
-
-  <h1>
-    Thoughtful Digital
-    Experiences.
-  </h1>
-
-  <p>
-    Creating elegant Shopify storefronts,
-    custom sections and conversion-focused
-    landing pages with attention to detail,
-    functionality and responsive design.
-  </p>
-
-  <a class="button" href="#projects">
-    Explore My Work
-  </a>
 </section>
 
 <section id="projects">
   <div class="container">
-
     <div class="section-heading">
       <div class="eyebrow">Selected Work</div>
       <h2>Featured Projects</h2>
       <p>
-        A selection of Shopify projects
-        created as part of my practical training.
+        A selection of Shopify projects created as part
+        of my practical training.
       </p>
     </div>
 
@@ -414,40 +356,32 @@ footer {
       <article class="project">
         <div class="project-image">
           <img
-            src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&amp;fit=crop&amp;w=1100&amp;q=85"
-            alt="Illustrative leather handbag photograph for MONPIEL project"
-            loading="lazy">
+            src="monpiel-portfolio.jpg"
+            alt="MONPIEL Shopify store product collection"
+            loading="lazy"
+          >
         </div>
-
         <div class="project-content">
-          <div class="project-tag">
-            Shopify Store Customization
-          </div>
-
+          <div class="project-tag">Shopify Store Design</div>
           <h3>MONPIEL</h3>
-
           <p>
-            A leather accessories Shopify store
-            featuring a refined visual identity,
-            custom Liquid sections, multilingual
-            content, product page enhancements
+            A leather accessories Shopify store featuring
+            a refined visual identity, custom Liquid sections,
+            multilingual content, product page enhancements
             and responsive layouts.
           </p>
-
           <div class="tags">
             <span>Shopify</span>
             <span>Custom Liquid</span>
             <span>EN / RU</span>
             <span>Responsive Design</span>
           </div>
-
           <a
             class="project-link"
             href="https://ani-dajunts-eh01900t.myshopify.com/"
             target="_blank"
-            rel="noopener noreferrer">
-            View Shopify Store →
-          </a>
+            rel="noopener noreferrer"
+          >View Shopify Store →</a>
         </div>
       </article>
 
@@ -455,39 +389,27 @@ footer {
         <div class="project-image">
           <img
             src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
-            alt="SPORTÉ Christmas corporate gift concept"
-            loading="lazy">
+            alt="SPORTÉ Christmas corporate gift project"
+            loading="lazy"
+          >
         </div>
-
         <div class="project-content">
-          <div class="project-tag">
-            Shopify Landing Page
-          </div>
-
+          <div class="project-tag">Landing Page Design</div>
           <h3>SPORTÉ Christmas Gifts</h3>
-
           <p>
-            A festive corporate gifting landing
-            page featuring a premium holiday
-            aesthetic, promotional countdown,
-            product benefits, comparison cards,
-            FAQ and contact inquiry form.
+            A festive corporate gifting landing page featuring
+            a premium holiday aesthetic, promotional sections,
+            product highlights, FAQ and a contact inquiry form.
           </p>
-
           <div class="tags">
             <span>Landing Page</span>
             <span>HTML & CSS</span>
             <span>Custom Liquid</span>
             <span>Mobile Responsive</span>
           </div>
-
-          <a
-            class="project-link"
-            href="https://lw8k56k9iwc4hr9q-74716938409.shopifypreview.com"
-            target="_blank"
-            rel="noopener noreferrer">
-            View Project Preview →
-          </a>
+          <p class="project-note">
+            Shopify project preview link being updated.
+          </p>
         </div>
       </article>
 
@@ -497,136 +419,91 @@ footer {
 
 <section id="about" class="about">
   <div class="container about-grid">
-
     <div class="about-panel">
       <div class="initials">AD</div>
       <h3>Ani Dajunts</h3>
       <p>Shopify & Digital Marketing</p>
     </div>
 
-    <div class="about-text">
+    <div>
       <div class="eyebrow">About Me</div>
-
-      <h2>
-        Combining Creativity
-        With Functionality.
-      </h2>
-
+      <h2>Combining Creativity With Functionality.</h2>
       <p>
-        I am a digital marketing professional
-        expanding my expertise in Shopify
-        store development and customization.
+        I am a digital marketing professional expanding
+        my expertise in Shopify store development and
+        customization.
       </p>
-
       <p>
-        My work focuses on clean design,
-        intuitive user experiences and
-        practical e-commerce solutions.
-        I enjoy creating custom sections
-        and responsive pages that balance
+        My work focuses on clean design, intuitive user
+        experiences and practical e-commerce solutions.
+        I enjoy creating responsive pages that balance
         visual appeal with functionality.
       </p>
-
       <p>
-        This portfolio showcases my hands-on
-        Shopify training projects and
-        ongoing development journey.
+        This portfolio showcases my hands-on Shopify
+        projects and ongoing development journey.
       </p>
     </div>
-
   </div>
 </section>
 
 <section id="skills">
   <div class="container">
-
     <div class="section-heading">
       <div class="eyebrow">My Expertise</div>
       <h2>Skills & Tools</h2>
     </div>
 
     <div class="skills">
-
       <div class="skill">
         <div class="skill-number">01</div>
         <h3>Shopify Customization</h3>
-        <p>
-          Theme editing, templates,
-          product pages and store layouts.
-        </p>
+        <p>Theme editing, templates, product pages and store layouts.</p>
       </div>
-
       <div class="skill">
         <div class="skill-number">02</div>
         <h3>Custom Liquid</h3>
-        <p>
-          Custom content sections,
-          HTML and CSS styling.
-        </p>
+        <p>Custom content sections, HTML and CSS styling.</p>
       </div>
-
       <div class="skill">
         <div class="skill-number">03</div>
         <h3>Responsive Design</h3>
-        <p>
-          Mobile-friendly layouts,
-          navigation and readable content.
-        </p>
+        <p>Mobile-friendly layouts and user experiences.</p>
       </div>
-
       <div class="skill">
         <div class="skill-number">04</div>
         <h3>Shopify Apps</h3>
-        <p>
-          Reviews, forms, translations
-          and storefront enhancements.
-        </p>
+        <p>Reviews, forms, translations and storefront enhancements.</p>
       </div>
-
       <div class="skill">
         <div class="skill-number">05</div>
         <h3>Landing Pages</h3>
-        <p>
-          Promotional pages with
-          clear calls to action.
-        </p>
+        <p>Promotional pages with clear calls to action.</p>
       </div>
-
       <div class="skill">
         <div class="skill-number">06</div>
         <h3>Digital Marketing</h3>
-        <p>
-          Customer communication,
-          messaging and campaign strategy.
-        </p>
+        <p>Customer communication, messaging and campaign strategy.</p>
       </div>
-
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <div class="container">
-    <div class="eyebrow" style="color:#E7C8B3">
-      Let's Connect
-    </div>
-
+    <div class="eyebrow" style="color:#E7C8B3">Let's Connect</div>
     <h2>Let's Create Something Meaningful.</h2>
-
     <p>
-      Interested in Shopify customization,
-      landing pages or digital marketing?
-      Explore my projects and connect
+      Interested in Shopify customization, landing pages
+      or digital marketing? Explore my projects and connect
       with me through GitHub.
     </p>
-
     <a
       class="button"
       href="https://github.com/anidajunts"
       target="_blank"
-      rel="noopener noreferrer">
-      Visit My GitHub
-    </a>
+      rel="noopener noreferrer"
+    >Visit My GitHub →</a>
   </div>
 </section>
 
