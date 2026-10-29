@@ -2,833 +2,581 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Ani Dajunts | Shopify & Digital Marketing Portfolio</title>
-
-  <meta name="description"
-        content="Portfolio of Ani Dajunts featuring Shopify store customization, custom Liquid sections, landing pages and digital marketing.">
-
-  <style>
-    :root {
-      --cream: #F5F0E8;
-      --white: #FFFCF8;
-      --brown: #2B211C;
-      --taupe: #897668;
-      --soft: #D6CCC2;
-      --wine: #641C35;
-      --muted: #6F5D52;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--cream);
-      color: var(--brown);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.65;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-    }
-
-    .container {
-      width: calc(100% - 40px);
-      max-width: 1160px;
-      margin: 0 auto;
-    }
-
-    /* HEADER */
-
-    header {
-      background: var(--white);
-      border-bottom: 1px solid var(--soft);
-    }
-
-    .nav {
-      min-height: 84px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      font-family: Georgia, serif;
-      font-size: 24px;
-      letter-spacing: 2px;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 26px;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      transition: color .2s;
-    }
-
-    nav a:hover {
-      color: var(--wine);
-    }
-
-    /* TYPOGRAPHY */
-
-    h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
-      line-height: 1.16;
-    }
-
-    h1 {
-      font-size: clamp(44px, 5.5vw, 76px);
-      margin: 18px 0 25px;
-    }
-
-    h2 {
-      font-size: clamp(34px, 4vw, 48px);
-      margin: 12px 0 22px;
-    }
-
-    h3 {
-      font-size: 29px;
-      margin: 12px 0;
-    }
-
-    p {
-      color: var(--muted);
-    }
-
-    .eyebrow {
-      color: var(--taupe);
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-
-    .button {
-      display: inline-block;
-      background: var(--brown);
-      color: white;
-      padding: 15px 28px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1.4px;
-      transition: background .25s, transform .25s;
-    }
-
-    .button:hover {
-      background: var(--wine);
-      transform: translateY(-2px);
-    }
-
-    /* HERO */
-
-    .hero {
-      background: linear-gradient(
-        120deg,
-        #F5F0E8 0%,
-        #E9DED5 100%
-      );
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 65px;
-      padding-top: 70px;
-      padding-bottom: 70px;
-    }
-
-    .hero-text p {
-      max-width: 510px;
-      font-size: 17px;
-      margin-bottom: 32px;
-    }
-
-    .hero-photo {
-      position: relative;
-      width: 100%;
-      max-width: 430px;
-      margin: 0 auto;
-    }
-
-    .hero-photo::before {
-      content: "";
-      position: absolute;
-      top: 22px;
-      right: -19px;
-      bottom: -19px;
-      left: 22px;
-      border: 1px solid #B49A8C;
-    }
-
-    .hero-photo img {
-      position: relative;
-      display: block;
-      width: 100%;
-      height: 490px;
-      object-fit: cover;
-      object-position: center 20%;
-      border: 9px solid var(--white);
-      background: #E4DDD7;
-    }
-
-    .photo-caption {
-      position: relative;
-      padding: 18px 10px 0;
-      text-align: center;
-      font-family: Georgia, serif;
-      font-size: 16px;
-      font-style: italic;
-      color: var(--wine);
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading p {
-      margin-bottom: 0;
-    }
-
-    /* PROJECTS */
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
-    }
-
-    .project {
-      background: var(--white);
-      border: 1px solid #E2D7CD;
-      padding: 12px;
-      box-shadow: 0 5px 25px rgba(43, 33, 28, .06);
-      transition: transform .3s, box-shadow .3s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(43, 33, 28, .13);
-    }
-
-    .project-image {
-      width: 100%;
-      height: 320px;
-      overflow: hidden;
-      background: #E8DDD4;
-    }
-
-    .project-image img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .project-content {
-      padding: 25px 15px 17px;
-    }
-
-    .project-tag {
-      color: var(--taupe);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: bold;
-    }
-
-    .project-content p {
-      font-size: 14px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 22px 0;
-    }
-
-    .tags span {
-      padding: 6px 11px;
-      background: #F9F4ED;
-      border: 1px solid var(--soft);
-      font-size: 11px;
-    }
-
-    .project-link {
-      display: inline-block;
-      background: var(--brown);
-      color: white;
-      padding: 13px 21px;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 1.2px;
-      transition: background .2s;
-    }
-
-    .project-link:hover {
-      background: var(--wine);
-    }
-
-    .project-note {
-      font-size: 12px;
-      font-style: italic;
-      color: var(--taupe);
-    }
-
-    /* ABOUT */
-
-    .about {
-      background: var(--white);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      align-items: center;
-      gap: 75px;
-    }
-
-    .about-panel {
-      background: var(--cream);
-      border: 1px solid var(--soft);
-      padding: 65px 30px;
-      text-align: center;
-    }
-
-    .initials {
-      font-family: Georgia, serif;
-      font-size: 95px;
-      line-height: 1.2;
-      color: var(--wine);
-    }
-
-    .about-panel p {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .about-text p {
-      font-size: 15px;
-    }
-
-    /* SKILLS */
-
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .skill {
-      background: var(--white);
-      border: 1px solid var(--soft);
-      padding: 30px 25px;
-    }
-
-    .skill-number {
-      color: var(--taupe);
-      font-family: Georgia, serif;
-      font-size: 30px;
-    }
-
-    .skill h3 {
-      font-size: 23px;
-      margin: 16px 0;
-    }
-
-    .skill p {
-      font-size: 14px;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      text-align: center;
-      background: var(--wine);
-    }
-
-    .contact h2 {
-      color: white;
-    }
-
-    .contact p {
-      max-width: 640px;
-      margin: 0 auto 30px;
-      color: #F3E3E2;
-    }
-
-    .contact .button {
-      background: var(--white);
-      color: var(--wine);
-    }
-
-    .contact .button:hover {
-      background: #F0E4DA;
-    }
-
-    footer {
-      background: var(--brown);
-      color: #E9DFD7;
-      padding: 26px 20px;
-      text-align: center;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 850px) {
-      .hero-grid,
-      .projects,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-grid {
-        gap: 40px;
-      }
-
-      .hero-text {
-        text-align: center;
-      }
-
-      .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .hero-photo {
-        max-width: 360px;
-      }
-
-      .hero-photo img {
-        height: 420px;
-      }
-
-      .skills {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid {
-        gap: 35px;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .nav {
-        flex-direction: column;
-        justify-content: center;
-        gap: 15px;
-        padding: 20px 0;
-      }
-
-      .brand {
-        font-size: 21px;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 17px;
-      }
-
-      nav a {
-        font-size: 11px;
-      }
-
-      .hero-grid {
-        padding-top: 45px;
-        padding-bottom: 45px;
-      }
-
-      .hero-photo {
-        max-width: 285px;
-      }
-
-      .hero-photo img {
-        height: 350px;
-      }
-
-      .project-image {
-        height: 245px;
-      }
-
-      .project-content {
-        padding: 22px 12px 15px;
-      }
-
-      .skills {
-        grid-template-columns: 1fr;
-      }
-
-      .about-panel {
-        padding: 45px 20px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ani Dajunts | Shopify Portfolio</title>
+<meta name="description" content="Ani Dajunts - Shopify design, customization, landing pages and digital marketing portfolio.">
+
+<style>
+:root {
+  --cream: #F5F0E8;
+  --white: #FFFCF8;
+  --brown: #2B211C;
+  --taupe: #897668;
+  --soft: #D6CCC2;
+  --wine: #641C35;
+  --muted: #6F5D52;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; }
+img { max-width: 100%; }
+.container {
+  width: calc(100% - 40px);
+  max-width: 1160px;
+  margin: auto;
+}
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--soft);
+}
+.nav {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  font: 24px Georgia, serif;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+nav { display: flex; gap: 26px; flex-wrap: wrap; }
+nav a {
+  text-decoration: none;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+}
+nav a:hover { color: var(--wine); }
+h1,h2,h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  line-height: 1.17;
+}
+h1 { font-size: clamp(44px, 5.5vw, 76px); margin: 18px 0 24px; }
+h2 { font-size: clamp(32px, 4vw, 48px); margin: 12px 0 22px; }
+h3 { font-size: 29px; margin: 12px 0; }
+p { color: var(--muted); }
+.eyebrow {
+  color: var(--taupe);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+.button, .project-link {
+  display: inline-block;
+  background: var(--brown);
+  color: white;
+  padding: 14px 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+.button:hover, .project-link:hover { background: var(--wine); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(120deg,#F5F0E8,#E9DED5);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 65px;
+  align-items: center;
+  padding: 70px 0;
+}
+.hero-text p {
+  max-width: 510px;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+.hero-photo {
+  max-width: 430px;
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 22px -18px -18px 22px;
+  border: 1px solid #B49A8C;
+}
+.hero-photo img {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 9px solid var(--white);
+  display: block;
+}
+.photo-caption {
+  position: relative;
+  text-align: center;
+  padding-top: 17px;
+  font: italic 16px Georgia, serif;
+  color: var(--wine);
+}
+
+/* SECTIONS */
+section { padding: 85px 0; }
+.section-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 45px;
+}
+
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 28px;
+}
+.project {
+  background: var(--white);
+  border: 1px solid #E2D7CD;
+  padding: 12px;
+  box-shadow: 0 5px 25px #2B211C0D;
+}
+.project-image {
+  height: 320px;
+  overflow: hidden;
+  background: #E8DDD4;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.project-content { padding: 25px 15px 18px; }
+.project-tag {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--taupe);
+}
+.project-content p { font-size: 14px; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+.tags span {
+  border: 1px solid var(--soft);
+  background: #F9F4ED;
+  padding: 6px 11px;
+  font-size: 11px;
+}
+
+/* CASE STUDIES */
+.case-study {
+  background: var(--white);
+  border-top: 1px solid var(--soft);
+}
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+.case-image img {
+  width: 100%;
+  display: block;
+  border: 8px solid var(--cream);
+}
+.case-text p { font-size: 15px; }
+.case-text ul {
+  color: var(--muted);
+  padding-left: 20px;
+  line-height: 2;
+}
+.case-alt { background: #EEE5DC; }
+
+/* ABOUT */
+.about { background: var(--white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  align-items: center;
+  gap: 70px;
+}
+.about-panel {
+  padding: 65px 30px;
+  text-align: center;
+  background: var(--cream);
+  border: 1px solid var(--soft);
+}
+.initials {
+  font: 95px Georgia,serif;
+  color: var(--wine);
+}
+.about-panel p {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* SKILLS */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+.skill {
+  padding: 30px 25px;
+  background: var(--white);
+  border: 1px solid var(--soft);
+}
+.skill-number {
+  font: 30px Georgia,serif;
+  color: var(--taupe);
+}
+.skill h3 { font-size: 23px; }
+.skill p { font-size: 14px; }
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  background: var(--wine);
+}
+.contact h2 { color: white; }
+.contact p {
+  color: #F3E3E2;
+  max-width: 620px;
+  margin: 0 auto 28px;
+}
+.contact .button {
+  background: var(--white);
+  color: var(--wine);
+}
+footer {
+  background: var(--brown);
+  color: #E9DFD7;
+  padding: 25px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+@media(max-width:850px) {
+  .hero-grid,.projects,.case-grid,.about-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-text { text-align: center; }
+  .hero-text p { margin-left: auto; margin-right: auto; }
+  .hero-photo { max-width: 350px; }
+  .hero-photo img { height: 420px; }
+  .skills { grid-template-columns: repeat(2,1fr); }
+  section { padding: 65px 0; }
+}
+@media(max-width:550px) {
+  .nav {
+    flex-direction: column;
+    padding: 18px 0;
+    gap: 15px;
+  }
+  nav { justify-content: center; gap: 16px; }
+  .brand { font-size: 21px; }
+  .hero-grid { padding: 45px 0; }
+  .hero-photo { max-width: 280px; }
+  .hero-photo img { height: 350px; }
+  .project-image { height: 245px; }
+  .skills { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+<header>
+  <div class="container nav">
+    <a href="#" class="brand">ANI DAJUNTS</a>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#">ANI DAJUNTS</a>
+<main>
 
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">Shopify & Digital Marketing Specialist</div>
+      <h1>Hi, I'm<br>Ani Dajunts.</h1>
+      <p>
+        I create elegant Shopify storefronts, custom sections
+        and engaging landing pages that bring creative ideas to life.
+      </p>
+      <a class="button" href="#projects">Explore My Work →</a>
     </div>
-  </header>
 
-  <main>
+    <div class="hero-photo">
+      <img
+        src="60355249_1765844476894029_1641437922441822208_n.jpg"
+        alt="Ani Dajunts portrait"
+      >
+      <div class="photo-caption">Design · Creativity · Digital</div>
+    </div>
+  </div>
+</section>
 
-    <!-- HERO WITH PERSONAL PHOTO -->
+<section id="projects">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Selected Work</div>
+      <h2>Featured Projects</h2>
+      <p>Shopify projects developed during my practical training.</p>
+    </div>
 
-    <section class="hero">
-      <div class="container hero-grid">
+    <div class="projects">
 
-        <div class="hero-text">
-          <div class="eyebrow">
-            Shopify & Digital Marketing Specialist
-          </div>
-
-          <h1>Hi, I'm<br>Ani Dajunts.</h1>
-
+      <article class="project">
+        <div class="project-image">
+          <img
+            src="monpiel-portfolio.jpg.jpg"
+            alt="MONPIEL Shopify store design concept"
+            loading="lazy"
+          >
+        </div>
+        <div class="project-content">
+          <div class="project-tag">Shopify Store Design</div>
+          <h3>MONPIEL</h3>
           <p>
-            I create elegant Shopify storefronts,
-            custom sections and engaging landing pages
-            that bring creative ideas to life.
+            A leather accessories store featuring custom sections,
+            multilingual content and a refined shopping experience.
           </p>
-
-          <a class="button" href="#projects">
-            Explore My Work →
+          <div class="tags">
+            <span>Shopify</span>
+            <span>Custom Liquid</span>
+            <span>EN / RU</span>
+            <span>Responsive</span>
+          </div>
+          <a class="project-link" href="#monpiel-case">
+            View Case Study →
           </a>
         </div>
+      </article>
 
-        <div class="hero-photo">
+      <article class="project">
+        <div class="project-image">
           <img
-            src="60355249_1765844476894029_1641437922441822208_n.jpg"
-            alt="Ani Dajunts portrait"
+            src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
+            alt="SPORTÉ Christmas corporate gifts"
+            loading="lazy"
           >
-
-          <div class="photo-caption">
-            Design · Creativity · Digital
-          </div>
         </div>
-
-      </div>
-    </section>
-
-    <!-- FEATURED PROJECTS -->
-
-    <section id="projects">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="eyebrow">Selected Work</div>
-
-          <h2>Featured Projects</h2>
-
+        <div class="project-content">
+          <div class="project-tag">Landing Page Design</div>
+          <h3>SPORTÉ Christmas Gifts</h3>
           <p>
-            A selection of Shopify projects created
-            as part of my practical training.
+            A festive corporate gifting landing page featuring
+            promotional content, FAQ and an inquiry form.
           </p>
+          <div class="tags">
+            <span>Landing Page</span>
+            <span>HTML & CSS</span>
+            <span>Custom Liquid</span>
+            <span>Mobile Responsive</span>
+          </div>
+          <a class="project-link" href="#sporte-case">
+            View Case Study →
+          </a>
         </div>
+      </article>
 
-        <div class="projects">
+    </div>
+  </div>
+</section>
 
-          <!-- MONPIEL -->
+<section id="monpiel-case" class="case-study">
+  <div class="container case-grid">
 
-          <article class="project">
+    <div class="case-image">
+      <img
+        src="monpiel-portfolio.jpg.jpg"
+        alt="MONPIEL project presentation"
+        loading="lazy"
+      >
+    </div>
 
-            <div class="project-image">
-              <img
-                src="monpiel-portfolio.jpg.jpg"
-                alt="MONPIEL Shopify store design presentation"
-                loading="lazy"
-              >
-            </div>
+    <div class="case-text">
+      <div class="eyebrow">Case Study 01</div>
+      <h2>MONPIEL</h2>
+      <p>
+        A Shopify customization project focused on creating
+        a sophisticated leather accessories storefront.
+      </p>
+      <p><strong>Project highlights:</strong></p>
+      <ul>
+        <li>Customized Shopify Dawn theme</li>
+        <li>Custom Liquid sections and styling</li>
+        <li>English and Russian storefront content</li>
+        <li>Enhanced product pages and templates</li>
+        <li>Responsive desktop and mobile layouts</li>
+        <li>Review widgets, forms and other Shopify apps</li>
+      </ul>
+      <a class="button" href="#projects">Back to Projects ↑</a>
+    </div>
 
-            <div class="project-content">
+  </div>
+</section>
 
-              <div class="project-tag">
-                Shopify Store Design
-              </div>
+<section id="sporte-case" class="case-study case-alt">
+  <div class="container case-grid">
 
-              <h3>MONPIEL</h3>
+    <div class="case-text">
+      <div class="eyebrow">Case Study 02</div>
+      <h2>SPORTÉ Christmas Gifts</h2>
+      <p>
+        A conversion-focused seasonal Shopify landing page
+        designed for a corporate gifting campaign.
+      </p>
+      <p><strong>Project highlights:</strong></p>
+      <ul>
+        <li>Holiday-inspired burgundy and cream design</li>
+        <li>Promotional offer and countdown timer</li>
+        <li>Gift presentation and product benefits</li>
+        <li>Comparison section</li>
+        <li>Frequently asked questions</li>
+        <li>Contact inquiry form</li>
+        <li>Mobile-responsive layout</li>
+      </ul>
+      <a class="button" href="#projects">Back to Projects ↑</a>
+    </div>
 
-              <p>
-                A leather accessories Shopify store featuring
-                a refined visual identity, custom Liquid sections,
-                multilingual content, product page enhancements
-                and responsive layouts.
-              </p>
+    <div class="case-image">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
+        alt="SPORTÉ project presentation"
+        loading="lazy"
+      >
+    </div>
 
-              <div class="tags">
-                <span>Shopify</span>
-                <span>Custom Liquid</span>
-                <span>EN / RU</span>
-                <span>Responsive Design</span>
-              </div>
+  </div>
+</section>
 
-              <a
-                class="project-link"
-                href="https://ani-dajunts-eh01900t.myshopify.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View Shopify Store →
-              </a>
+<section id="about" class="about">
+  <div class="container about-grid">
 
-            </div>
-          </article>
+    <div class="about-panel">
+      <div class="initials">AD</div>
+      <h3>Ani Dajunts</h3>
+      <p>Shopify & Digital Marketing</p>
+    </div>
 
-          <!-- SPORTE -->
+    <div>
+      <div class="eyebrow">About Me</div>
+      <h2>Combining Creativity With Functionality.</h2>
+      <p>
+        I am a digital marketing professional expanding
+        my expertise in Shopify store development and customization.
+      </p>
+      <p>
+        My work focuses on clean design, intuitive user experiences
+        and practical e-commerce solutions.
+      </p>
+      <p>
+        This portfolio showcases my hands-on Shopify projects
+        and ongoing development journey.
+      </p>
+    </div>
 
-          <article class="project">
+  </div>
+</section>
 
-            <div class="project-image">
-              <img
-                src="https://cdn.shopify.com/s/files/1/0747/1693/8409/files/SPORTE.png?v=1793185488"
-                alt="SPORTÉ Christmas corporate gifts landing page"
-                loading="lazy"
-              >
-            </div>
+<section id="skills">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">My Expertise</div>
+      <h2>Skills & Tools</h2>
+    </div>
 
-            <div class="project-content">
-
-              <div class="project-tag">
-                Landing Page Design
-              </div>
-
-              <h3>SPORTÉ Christmas Gifts</h3>
-
-              <p>
-                A festive corporate gifting landing page
-                featuring a premium holiday aesthetic,
-                promotional sections, product highlights,
-                FAQ and a contact inquiry form.
-              </p>
-
-              <div class="tags">
-                <span>Landing Page</span>
-                <span>HTML & CSS</span>
-                <span>Custom Liquid</span>
-                <span>Mobile Responsive</span>
-              </div>
-
-              <p class="project-note">
-                Project preview link will be added
-                after Shopify access is verified.
-              </p>
-
-            </div>
-          </article>
-
-        </div>
+    <div class="skills">
+      <div class="skill">
+        <div class="skill-number">01</div>
+        <h3>Shopify Customization</h3>
+        <p>Theme editing, templates and product pages.</p>
       </div>
-    </section>
 
-    <!-- ABOUT -->
-
-    <section id="about" class="about">
-      <div class="container about-grid">
-
-        <div class="about-panel">
-          <div class="initials">AD</div>
-
-          <h3>Ani Dajunts</h3>
-
-          <p>Shopify & Digital Marketing</p>
-        </div>
-
-        <div class="about-text">
-          <div class="eyebrow">About Me</div>
-
-          <h2>Combining Creativity With Functionality.</h2>
-
-          <p>
-            I am a digital marketing professional
-            expanding my expertise in Shopify store
-            development and customization.
-          </p>
-
-          <p>
-            My work focuses on clean design,
-            intuitive user experiences and practical
-            e-commerce solutions.
-          </p>
-
-          <p>
-            I enjoy creating responsive pages and custom
-            sections that balance visual appeal with
-            functionality.
-          </p>
-
-          <p>
-            This portfolio showcases my hands-on Shopify
-            training projects and ongoing development journey.
-          </p>
-        </div>
-
+      <div class="skill">
+        <div class="skill-number">02</div>
+        <h3>Custom Liquid</h3>
+        <p>Custom sections, HTML and CSS styling.</p>
       </div>
-    </section>
 
-    <!-- SKILLS -->
-
-    <section id="skills">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="eyebrow">My Expertise</div>
-          <h2>Skills & Tools</h2>
-        </div>
-
-        <div class="skills">
-
-          <div class="skill">
-            <div class="skill-number">01</div>
-            <h3>Shopify Customization</h3>
-            <p>
-              Theme editing, templates, product pages
-              and store layouts.
-            </p>
-          </div>
-
-          <div class="skill">
-            <div class="skill-number">02</div>
-            <h3>Custom Liquid</h3>
-            <p>
-              Custom content sections, HTML
-              and CSS styling.
-            </p>
-          </div>
-
-          <div class="skill">
-            <div class="skill-number">03</div>
-            <h3>Responsive Design</h3>
-            <p>
-              Mobile-friendly layouts, navigation
-              and user experiences.
-            </p>
-          </div>
-
-          <div class="skill">
-            <div class="skill-number">04</div>
-            <h3>Shopify Apps</h3>
-            <p>
-              Reviews, forms, translations
-              and storefront enhancements.
-            </p>
-          </div>
-
-          <div class="skill">
-            <div class="skill-number">05</div>
-            <h3>Landing Pages</h3>
-            <p>
-              Promotional pages with clear
-              calls to action.
-            </p>
-          </div>
-
-          <div class="skill">
-            <div class="skill-number">06</div>
-            <h3>Digital Marketing</h3>
-            <p>
-              Customer communication,
-              messaging and campaign strategy.
-            </p>
-          </div>
-
-        </div>
+      <div class="skill">
+        <div class="skill-number">03</div>
+        <h3>Responsive Design</h3>
+        <p>Mobile-friendly layouts and navigation.</p>
       </div>
-    </section>
 
-    <!-- CONTACT -->
-
-    <section id="contact" class="contact">
-      <div class="container">
-
-        <div class="eyebrow" style="color:#E7C8B3;">
-          Let's Connect
-        </div>
-
-        <h2>Let's Create Something Meaningful.</h2>
-
-        <p>
-          Interested in Shopify customization,
-          landing pages or digital marketing?
-          Explore my projects and connect
-          with me through GitHub.
-        </p>
-
-        <a
-          class="button"
-          href="https://github.com/anidajunts"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit My GitHub →
-        </a>
-
+      <div class="skill">
+        <div class="skill-number">04</div>
+        <h3>Shopify Apps</h3>
+        <p>Reviews, forms and translation tools.</p>
       </div>
-    </section>
 
-  </main>
+      <div class="skill">
+        <div class="skill-number">05</div>
+        <h3>Landing Pages</h3>
+        <p>Promotional pages and calls to action.</p>
+      </div>
 
-  <!-- FOOTER -->
+      <div class="skill">
+        <div class="skill-number">06</div>
+        <h3>Digital Marketing</h3>
+        <p>Customer messaging and campaign strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    © 2026 Ani Dajunts · Shopify Portfolio
-  </footer>
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="eyebrow" style="color:#E7C8B3">Let's Connect</div>
+    <h2>Let's Create Something Meaningful.</h2>
+    <p>
+      Interested in Shopify customization, landing pages
+      or digital marketing? Explore my projects
+      and connect with me through GitHub.
+    </p>
+    <a class="button"
+       href="https://github.com/anidajunts"
+       target="_blank"
+       rel="noopener noreferrer">
+       Visit My GitHub →
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Ani Dajunts · Shopify Portfolio
+</footer>
 
 </body>
 </html>
